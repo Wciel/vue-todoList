@@ -91,10 +91,6 @@ export default {
         cursor pointer
         outline none
         font-size 15px
-        // display none
     }
-    // .destroy:hover{
-    //     display block
-    // }
 </style>
 
