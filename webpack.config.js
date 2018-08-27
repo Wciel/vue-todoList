@@ -59,6 +59,7 @@ const config = {
 
 
 if (isDev) {
+
   config.module.rules.push({
     test: /\.styl/,
     use: [
@@ -94,7 +95,6 @@ if (isDev) {
   config.entry = {
     app: path.join(__dirname, 'src/index.js'),
     vendor: ['vue']
-
   }
   config.output.filename = '[name].[chunkhash:8].js'
   config.module.rules.push({

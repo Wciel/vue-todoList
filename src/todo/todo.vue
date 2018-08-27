@@ -46,9 +46,6 @@ export default {
       return this.todos.filter((todo) => todo.completed === completed)
     }
   },
-  updated() {
-    console.log(this.filteredCompleted)
-  },
   methods: {
     addTodo(e) {
       this.todos.unshift({
@@ -59,13 +56,11 @@ export default {
       e.target.value = ''
     },
     deleteTodo(id) {
-      console.log("id", id)
-      let index = this.todos.findIndex((todo) => {todo.id === id})
+      let index = this.todos.findIndex((todo) => todo.id === id)
       console.log(index)
       this.todos.splice(index, 1)
     },
     toggleFilter(state) {
-      console.log(state)
       this.filter = state
     },
     clearAllCompleted() {
