@@ -18,6 +18,10 @@ const config = {
         loader: 'vue-loader' //使用一个loader,即用vue-loader去处理.vue这样的文件类型，保证最后能输出正确的js代码
       },
       {
+        test: /\.jsx$/, 
+        loader: 'babel-loader'
+      },
+      {
         test: /\.css$/, 
         use: [
           'style-loader',
@@ -29,6 +33,12 @@ const config = {
         use: [
           'style-loader',
           'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
           'stylus-loader',
         ]
       },
