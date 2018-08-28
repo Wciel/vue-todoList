@@ -61,7 +61,7 @@ if (isDev) {
       vendor: ['vue']
     },
     output:{
-      filename: '[name].[chunkhash:8].js'
+      filename: 'vueJsFile/[name].[chunkhash:8].js'
     },
     module: {
       rules: [{
@@ -86,10 +86,10 @@ if (isDev) {
       new ExtractPlugin('styles.[contentHash:8].css'),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor'
-      }),
+      }), // Package the vue framework file separately need the plugin
       new webpack.optimize.CommonsChunkPlugin({
         name: 'runtime'
-      }),
+      }), //separate packed the code about webpack in app 
     ])
   })
 }

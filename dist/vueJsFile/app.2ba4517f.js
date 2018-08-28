@@ -207,6 +207,7 @@ var _todo2 = _interopRequireDefault(_todo);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// console.log(Header.__docs)
 exports.default = {
   components: {
     Header: _header2.default,
