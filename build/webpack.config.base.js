@@ -3,21 +3,23 @@
 const path = require('path')
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const vueLoaderOptions = require('./vue-loader.config')
 
 const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
   target: 'web',
-  entry: path.join(__dirname, '../src/index.js'), //__dirname这个代表webpack.config.js文件所在的地址，也就是根目录
+  entry: path.join(__dirname, '../client/index.js'), //__dirname这个代表webpack.config.js文件所在的地址，也就是根目录
   output: {
     filename: 'bundle.[hash:8].js',
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, '../dist')
   },
   module: {
     rules: [
       {
         test: /\.vue$/, //Indicates the vue type.
-        loader: 'vue-loader' //使用一个loader,即用vue-loader去处理.vue这样的文件类型，保证最后能输出正确的js代码
+        loader: 'vue-loader', //使用一个loader,即用vue-loader去处理.vue这样的文件类型，保证最后能输出正确的js代码
+        options: vueLoaderOptions(isDev),
       },
       {
         test: /\.jsx$/, 

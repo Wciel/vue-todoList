@@ -36,7 +36,7 @@ if (isDev) {
       rules: [{
         test: /\.styl/,
         use: [
-          'style-loader',
+          'vue-style-loader',
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -57,7 +57,7 @@ if (isDev) {
 } else {
   config = merge(baseConfig, {
     entry: {
-      app: path.join(__dirname, '../src/index.js'),
+      app: path.join(__dirname, '../client/index.js'),
       vendor: ['vue']
     },
     output:{
@@ -67,7 +67,8 @@ if (isDev) {
       rules: [{
         test: /\.styl/,
         use: ExtractPlugin.extract({
-          fallback: 'style-loader', //这里是将css-loader处理出来的内容包了一层js代码，Js代码就是将css代码写到html里面去
+          fallback: 'vue-style-loader', /*compile and convert the source code(afert css-loader dealt with the css) 
+                                        to the CSS code available for target browsers.*/
           use: [
             'css-loader',
             {
