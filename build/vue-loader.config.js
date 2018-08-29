@@ -9,7 +9,11 @@ module.exports = (isDev) => {
     // loader: {
     //   'docs': docsLoader
     // } Custom the vue module
-    // preLoader: {}, //before vue-loader analysis
-    // postLoader:{}, //before vue-loader analysis
+    preLoader: {}, //before vue-loader analysis
+    postLoader: {}, //before vue-loader analysis
+    cssModules: {
+      localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]',
+      camelCase: true, //cover className to cameClase standard 
+    } //you want to use the cssModules you need to add 'module' in vue-style
   }
 }
