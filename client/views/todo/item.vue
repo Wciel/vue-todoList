@@ -14,12 +14,12 @@ export default {
   props: {
     todo: {
       type: Object,
-      required: true,
+      required: true
     }
   },
   methods: {
-    deleteTodo() {
-      this.$emit('del', this.todo.id) //子组件发送事件，父组件监听，并作出对应的操作
+    deleteTodo () {
+      this.$emit('del', this.todo.id) // 子组件发送事件，父组件监听，并作出对应的操作
     }
   }
 }
@@ -93,4 +93,5 @@ export default {
         font-size 15px
     }
 </style>
+
 

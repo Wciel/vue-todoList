@@ -17,16 +17,22 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.vue$/, //Indicates the vue type.
-        loader: 'vue-loader', //使用一个loader,即用vue-loader去处理.vue这样的文件类型，保证最后能输出正确的js代码
-        options: vueLoaderOptions(isDev),
+        test: /\.(vue|js|jsx)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        enforce: 'pre' //start-up eslint before all loader
       },
       {
-        test: /\.jsx$/, 
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: vueLoaderOptions(isDev)
+      },
+      {
+        test: /\.jsx$/,
         loader: 'babel-loader'
       },
       {
-        test: /\.js$/, 
+        test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/ //忽略node_modules里面的js文件，不需要重新编译
       },

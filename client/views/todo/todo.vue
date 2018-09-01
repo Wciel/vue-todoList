@@ -28,10 +28,10 @@ import Tabs from './tabs.vue'
 
 let id = 0
 export default {
-  data() {
+  data () {
     return {
-      todos:[],
-      filter: 'all',
+      todos: [],
+      filter: 'all'
     }
   },
   components: {
@@ -39,7 +39,7 @@ export default {
     Tabs
   },
   computed: {
-    filteredCompleted() {
+    filteredCompleted () {
       // console.log(this.filter)
       if (this.filter === 'all') return this.todos
       const completed = this.filter === 'completed'
@@ -47,23 +47,23 @@ export default {
     }
   },
   methods: {
-    addTodo(e) {
+    addTodo (e) {
       this.todos.unshift({
         id: id++,
-        content: e.target.value.trim(), //trim去掉前后空格
+        content: e.target.value.trim(), // trim去掉前后空格
         completed: false
       })
       e.target.value = ''
     },
-    deleteTodo(id) {
+    deleteTodo (id) {
       let index = this.todos.findIndex((todo) => todo.id === id)
       console.log(index)
       this.todos.splice(index, 1)
     },
-    toggleFilter(state) {
+    toggleFilter (state) {
       this.filter = state
     },
-    clearAllCompleted() {
+    clearAllCompleted () {
       this.todos = this.todos.filter((todo) => !todo.completed)
     }
   }
