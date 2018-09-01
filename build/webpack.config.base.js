@@ -17,7 +17,7 @@ const config = {
       {
         test: /\.(vue|js|jsx)$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/, // ignore the node_modules file
         enforce: 'pre' /* start-up eslint before all loader */
       },
       {
@@ -32,7 +32,7 @@ const config = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/ // 忽略node_modules里面的js文件，不需要重新编译
+        exclude: /node_modules/
       },
       {
         test: /\.(gif|jpg|jpeg|png|svg)$/,

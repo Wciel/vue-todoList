@@ -87,7 +87,7 @@ if (isDev) {
       }]
     },
     plugins: defaultPlugins.concat([
-      new ExtractPlugin('styles.[contentHash:8].css'),
+      new ExtractPlugin('cssStyle/styles.[contentHash:8].css'),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor'
       }), // Package the vue framework file separately need the plugin
