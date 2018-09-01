@@ -133,8 +133,8 @@ document.body.appendChild(root);
 new _vue2.default({
   render: function render(h) {
     return h(_app2.default);
-  } //这里只是渲染出来了app的内容
-}).$mount(root); //挂载到root里面
+  } // 这里只是渲染出来了app的内容
+}).$mount(root); // 挂载到root里面
 
 /***/ }),
 /* 4 */,
@@ -233,9 +233,9 @@ exports.default = {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_cb47647c_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_header_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_cb47647c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_header_vue__ = __webpack_require__(12);
 function injectStyle (ssrContext) {
-  __webpack_require__(11)
+  this["$style"] = __webpack_require__(11)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -247,12 +247,12 @@ var __vue_script__ = null
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-cb47647c"
+var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __vue_script__,
-  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_cb47647c_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_header_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_cb47647c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_header_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -267,14 +267,15 @@ var Component = normalizeComponent(
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+module.exports = {"main-header":"_2oumZ_0","mainHeader":"_2oumZ_0"};
 
 /***/ }),
 /* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',{staticClass:"main-header"},[_c('h1',[_vm._v("JToto")])])}]
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',{class:_vm.$style.mainHeader},[_c('h1',[_vm._v("JToto")])])}
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -289,7 +290,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(14);
+var _footer = __webpack_require__(14);
+
+var _footer2 = _interopRequireDefault(_footer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   data: function data() {
@@ -303,7 +308,7 @@ exports.default = {
     return h(
       'div',
       {
-        attrs: { id: 'footer' }
+        attrs: { id: _footer2.default.footer }
       },
       [h(
         'span',
@@ -436,7 +441,7 @@ exports.default = {
     addTodo: function addTodo(e) {
       this.todos.unshift({
         id: id++,
-        content: e.target.value.trim(), //trim去掉前后空格
+        content: e.target.value.trim(), // trim去掉前后空格
         completed: false
       });
       e.target.value = '';
@@ -533,7 +538,7 @@ exports.default = {
   },
   methods: {
     deleteTodo: function deleteTodo() {
-      this.$emit('del', this.todo.id); //子组件发送事件，父组件监听，并作出对应的操作
+      this.$emit('del', this.todo.id); // 子组件发送事件，父组件监听，并作出对应的操作
     }
   }
 };
