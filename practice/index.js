@@ -1,3 +1,4 @@
 // import './vuecycle'
 // import './data-building'
-import './computed'
+// import './computed'
+import './directive'
