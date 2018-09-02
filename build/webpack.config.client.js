@@ -20,7 +20,7 @@ const devServer = {
   overlay: {
     errors: true
   }, // Displaying errors on Web pages
-  open: true, // start-up the dev-server open the browser immediately.
+  open: false, // start-up the dev-server open the browser immediately.
   // historyFallback: {
 
   // } // 因为是路由单页应用，请求地址不一定是默认的index.html，Mapping different paths to index.html
