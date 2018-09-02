@@ -1,19 +1,20 @@
 <template>
   <section class="real-app">
-    <input 
+    <input
       type="text"
       class="add-input"
       autofocus="autofocus"
       placeholder="接下去要做什么"
-      @keyup.enter="addTodo"    
+      @keyup.enter="addTodo"
     />
-    <Item 
+    <Item
       v-for="todo in filteredCompleted"
       :key="todo.id"
       :todo="todo"
+      :isActive="isActive"
       @del="deleteTodo"
     ></Item>
-    <Tabs 
+    <Tabs
       :todos="todos"
       :filter="filter"
       @toggle="toggleFilter"
@@ -31,7 +32,8 @@ export default {
   data () {
     return {
       todos: [],
-      filter: 'all'
+      filter: 'all',
+      isActive: true
     }
   },
   components: {
@@ -62,6 +64,11 @@ export default {
     },
     toggleFilter (state) {
       this.filter = state
+      if (state === 'all') {
+        this.isActive = true
+      } else {
+        this.isActive = false
+      }
     },
     clearAllCompleted () {
       this.todos = this.todos.filter((todo) => !todo.completed)

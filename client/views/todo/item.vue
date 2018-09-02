@@ -3,6 +3,7 @@
         <input type="checkbox"
                class="toggle"
                v-model="todo.completed"
+               :disabled="!isActive"
         >
         <label>{{todo.content}}</label>
         <button class="destroy" @click="deleteTodo">x</button>
@@ -14,6 +15,10 @@ export default {
   props: {
     todo: {
       type: Object,
+      required: true
+    },
+    isActive: {
+      type: Boolean,
       required: true
     }
   },
