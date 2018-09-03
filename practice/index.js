@@ -2,4 +2,5 @@
 // import './data-building'
 // import './computed'
 // import './directive'
-import './component'
+// import './component/extend'
+import './component/features'
