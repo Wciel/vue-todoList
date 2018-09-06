@@ -4,11 +4,17 @@
 
     </div>
     <Header></Header>
+    <!-- <Todo></Todo> -->
+    <router-link to="/app">app</router-link>
+    <router-link to="/login">logindhelas</router-link>
+    <transition name="fade">
+      <router-view />  <!-- 路径是什么，就显示什么 -->
+    </transition>
     <Footer></Footer>
-    <Todo></Todo>
+    <!-- <router-view name="a"/> -->
   </div>
 
-</template> 
+</template>
 
 <script>
 import Header from './lagout/header.vue'
@@ -20,6 +26,10 @@ export default {
     Header,
     Footer,
     Todo
+  },
+  mounted () {
+    console.log(this.$route)
+    console.log(this.$route.query)
   }
 }
 </script>
