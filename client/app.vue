@@ -2,6 +2,7 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
+    <p>{{fullName}}</p>
     <p>{{count}}hellp</p>
     <Footer></Footer>
     <Todo></Todo>
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
 import Header from './lagout/header.vue'
 import Footer from './lagout/footer.jsx'
 import Todo from './views/todo/todo.vue'
@@ -27,11 +29,19 @@ export default {
     //   this.$store.commit('updateCount', i++)
     // }, 1000)
     // this.$store.commit('updateCount', i++)
+    console.log(this.$store.getters.fullName)
   },
   computed: {
-    count () {
-      return this.$store.state.count
-    }
+    // count () {
+    //   return this.$store.state.count
+    // },
+    // fullName () {
+    //   return this.$store.getters.fullName
+    // },
+    ...mapGetters(['fullName']),
+    ...mapState({
+      count: (state) => state.count
+    })
   }
 }
 </script>
