@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <div id="cover">
-
-    </div>
+    <div id="cover"></div>
     <Header></Header>
+    <p>{{count}}hellp</p>
     <Footer></Footer>
     <Todo></Todo>
   </div>
 
-</template> 
+</template>
 
 <script>
 import Header from './lagout/header.vue'
@@ -20,6 +19,19 @@ export default {
     Header,
     Footer,
     Todo
+  },
+  mounted () {
+    console.log(this.$store) // 每个组件内部都会加上$store这个对象，指向的就是Vue入口的store
+    // let i = 0
+    // setInterval(() => {
+    //   this.$store.commit('updateCount', i++)
+    // }, 1000)
+    // this.$store.commit('updateCount', i++)
+  },
+  computed: {
+    count () {
+      return this.$store.state.count
+    }
   }
 }
 </script>
