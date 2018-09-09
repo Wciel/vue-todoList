@@ -21,8 +21,13 @@ export default () => {
     script: true, // 不允许在外部改store的值，只能由mutation改动store的值
     state: defaultState,
     mutations, // 同步的数据可以修改掉的写在mutations里面
-    getters,
+    getters, // 通过getters去计算重新构造数据
     actions, // 异步的数据写在actions里面，通过调用mutations
+    plugins: [
+      (store) => {
+        console.log('my plugin invoked')
+      }
+    ],
     modules: {
       a: {
         namespaced: true, // 不会与外界的mutations起冲突，命名的规范性

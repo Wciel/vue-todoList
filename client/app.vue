@@ -3,8 +3,9 @@
     <div id="cover"></div>
     <Header></Header>
     <p>{{fullName}}</p>
-    <p>{{textA}}hellp</p>
+    <p>{{count}}hellp</p>
     <p>{{textC}}</p>
+    <p>{{textA}}</p>
     <Footer></Footer>
     <Todo></Todo>
   </div>
@@ -32,10 +33,9 @@ export default {
     // this.$store.commit('updateCount', i++)
     console.log(this.$store.getters.fullName)
     this.updateCountAsync({
-      num: 5,
+      num: 3,
       time: 2000
     })
-    // this.updateText('123')
     this.updateText('123')
     console.log('textPlus', this.textPlus)
     console.log('a/actions/add', this['a/add']())
@@ -53,11 +53,12 @@ export default {
     }),
     ...mapState({
       count: (state) => state.count,
-      textC: (state) => state.c.text
-    }),
-    textA () {
-      return this.$store.state.a.text
-    }
+      textC: (state) => state.c.text,
+      textA: (state) => state.a.text
+    })
+    // textA () {
+    //   return this.$store.state.a.text
+    // }
   },
   methods: {
     ...mapActions(['updateCountAsync', 'a/add']),
