@@ -7,6 +7,12 @@ import './assets/styles/global.styl'
 Vue.use(Vuex)
 
 const store = createStore()
+store.registerModule('c', {
+  state: {
+    text: 'im modules c'
+  }
+}) // vuex动态注册模块
+
 const root = document.createElement('div')
 document.body.appendChild(root)
 

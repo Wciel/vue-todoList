@@ -3,7 +3,8 @@
     <div id="cover"></div>
     <Header></Header>
     <p>{{fullName}}</p>
-    <p>{{count}}hellp</p>
+    <p>{{textA}}hellp</p>
+    <p>{{textC}}</p>
     <Footer></Footer>
     <Todo></Todo>
   </div>
@@ -34,11 +35,10 @@ export default {
       num: 5,
       time: 2000
     })
-    // this.updataCount({
-    //   num: 3,
-    //   mun2: 2
-    // })
-    console.log(this.count)
+    // this.updateText('123')
+    this.updateText('123')
+    console.log('textPlus', this.textPlus)
+    console.log('a/actions/add', this['a/add']())
   },
   computed: {
     // count () {
@@ -47,14 +47,25 @@ export default {
     // fullName () {
     //   return this.$store.getters.fullName
     // },
-    ...mapGetters(['fullName']),
+    ...mapGetters({
+      'fullName': 'fullName',
+      'textPlus': 'a/textPlus'
+    }),
     ...mapState({
-      count: (state) => state.count
-    })
+      count: (state) => state.count,
+      textC: (state) => state.c.text
+    }),
+    textA () {
+      return this.$store.state.a.text
+    }
   },
   methods: {
-    ...mapActions(['updateCountAsync']),
-    ...mapMutations(['updateCount'])
+    ...mapActions(['updateCountAsync', 'a/add']),
+    // ...mapMutations(['updateCount', 'a/updateText'])
+    ...mapMutations({
+      'updateCount': 'updateCount',
+      'updateText': 'a/updateText'
+    })
   }
 }
 </script>
