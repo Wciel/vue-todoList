@@ -2,15 +2,15 @@
 // import Login from '../views/login/login.vue'
 export default [
   {
-    path: '/',
-    redirect: '/login'
-  },
-  {
-    path: '/app', // 自定义路径
+    path: '/app/:id', // 自定义路径,相当于／app/xxx
     component: () => import('../views/todo/todo.vue'),
+    // components: {
+    //   default: () => import('../views/todo/todo.vue'),
+    //   newName: () => import('../views/login/login.vue')
+    // },
     // component: Todo,
-    // props: true, // 会将id作为props传递到Todo这个组件中去，这两种方法更好，解藕，使代码复用性更高
-    props: (route) => { return { id: route.query.b } }, // 使用route中的query参数，
+    props: true, // 会将id作为props传递到Todo这个组件中去，这两种方法更好，解藕，使代码复用性更高
+    // props: (route) => { return { id: route.query.b } }, // 使用route中的query参数，
     name: 'app', // 与前面的path命名没有关系
     meta: {
       title: 'this is app',
@@ -21,7 +21,11 @@ export default [
         path: 'test',
         component: () => import('../views/login/login.vue')
       }
-    ] // 得在todo组件下放一个router-view才能显示出来
+    ], // 得在todo组件下放一个router-view才能显示出来
+    beforeEnter (to, from, next) {
+      console.log('app route before enter')
+      next()
+    } // 在单个路由里面的钩子函数
   },
   {
     path: '/login',

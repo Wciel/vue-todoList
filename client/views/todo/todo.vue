@@ -30,6 +30,21 @@ import Tabs from './tabs.vue'
 
 let id = 0
 export default {
+  // 关于某个组件的钩子函数
+  beforeRouteEnter (to, from, next) {
+    console.log('before enter') // 在这里是拿不到组件this的
+    next(vm => {
+      console.log('todo组件', vm)
+    })
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('route update')
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('todo leave enter')
+    next()
+  },
   props: ['id'],
   data () {
     return {
@@ -42,8 +57,14 @@ export default {
     Item,
     Tabs
   },
-  mounted () {
-    console.log(this.id)
+  // mounted () {
+  //   console.log('id is', this.id)
+  // },
+  updated () {
+    // setTimeout(() => {
+    //   console.log('hello')
+    // }, 0);
+    console.log('todo props id is', this.id)
   },
   computed: {
     filteredCompleted () {

@@ -5,31 +5,38 @@
     </div>
     <Header></Header>
     <!-- <Todo></Todo> -->
-    <router-link to="/app">app</router-link>
-    <router-link to="/login">logindhelas</router-link>
+    <router-link to="/app/123">app</router-link>
+    <router-link to="/login">login</router-link>
     <transition name="fade">
       <router-view />  <!-- 路径是什么，就显示什么 -->
     </transition>
     <Footer></Footer>
-    <!-- <router-view name="a"/> -->
+     <router-view name="newName"/>
   </div>
 
 </template>
 
 <script>
-import Header from './lagout/header.vue'
-import Footer from './lagout/footer.jsx'
+import Header from './layout/header.vue'
+import Footer from './layout/footer.jsx'
 import Todo from './views/todo/todo.vue'
 // console.log(Header.__docs)
 export default {
+  props: ['id'],
   components: {
     Header,
     Footer,
     Todo
   },
-  mounted () {
-    console.log(this.$route)
-    console.log(this.$route.query)
+  data () {
+    return {
+      name: this.id
+    }
+  },
+  // mounted () {
+  //   console.log('id', this.id)
+  // },
+  updated () {
   }
 }
 </script>
