@@ -6,8 +6,14 @@
     <p>{{count}}hellp</p>
     <p>{{textC}}</p>
     <p>{{textA}}</p>
+    <!-- <Todo></Todo> -->
+    <router-link to="/app/123">app</router-link>
+    <router-link to="/login">login</router-link>
+    <transition name="fade">
+      <router-view />  <!-- 路径是什么，就显示什么 -->
+    </transition>
     <Footer></Footer>
-    <Todo></Todo>
+     <router-view name="newName"/>
   </div>
 
 </template>
@@ -19,10 +25,21 @@ import Footer from './lagout/footer.jsx'
 import Todo from './views/todo/todo.vue'
 // console.log(Header.__docs)
 export default {
+  props: ['id'],
   components: {
     Header,
     Footer,
     Todo
+  },
+  data () {
+    return {
+      name: this.id
+    }
+  },
+  // mounted () {
+  //   console.log('id', this.id)
+  // },
+  updated () {
   },
   mounted () {
     console.log(this.$store) // 每个组件内部都会加上$store这个对象，指向的就是Vue入口的store

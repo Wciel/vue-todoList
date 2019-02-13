@@ -12,7 +12,9 @@ const defaultPlugins = [
       NODE_ENV: isDev ? '"development"' : '"production"'
     }
   }), // we can use it in js
-  new HTMLPlugin(), // find the html entry
+  new HTMLPlugin({
+    template: path.join(__dirname, 'template.html')
+  }), // find the html entry
   new VueClientPlugin() // 自动生成vue-ssr-client-manifest.json的文件
 ]
 
@@ -22,10 +24,10 @@ const devServer = {
   overlay: {
     errors: true
   }, // Displaying errors on Web pages
-  open: false, // start-up the dev-server open the browser immediately.
-  // historyFallback: {
-
-  // } // 因为是路由单页应用，请求地址不一定是默认的index.html，Mapping different paths to index.html
+  open: true, // start-up the dev-server open the browser immediately.
+  historyApiFallback: {
+    index: '/index.html'
+  }, // 因为是路由单页应用，请求地址不一定是默认的index.html，Mapping different paths to index.html
   hot: true // Update without refreshing the page.
 }
 

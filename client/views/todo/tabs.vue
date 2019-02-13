@@ -2,7 +2,7 @@
   <div class="helper">
     <span class="left">{{unFinishedTodoLength}} items left</span>
     <span class="tabs">
-      <span 
+      <span
         v-for="state in states"
         :key="state"
         :class="[state, filter === state ? 'actived' : filter]"

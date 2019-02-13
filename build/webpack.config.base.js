@@ -10,7 +10,8 @@ const config = {
   entry: path.join(__dirname, '../client/index.js'), // dirname这个代表webpack.config.js文件所在的地址，也就是根目录
   output: {
     filename: 'bundle.[hash:8].js',
-    path: path.join(__dirname, '../dist')
+    path: path.join(__dirname, '../dist'),
+    publicPath: '/'
   },
   module: {
     rules: [
