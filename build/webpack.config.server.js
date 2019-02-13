@@ -4,7 +4,6 @@ const merge = require('webpack-merge')
 const ExtractPlugin = require('extract-text-webpack-plugin')// Separate css file
 const baseConfig = require('./webpack.config.base')
 const VueServerPlugin = require('vue-server-renderer/server-plugin')
-
 const config = merge(baseConfig, {
   target: 'node', // 指明程序在node端运行
   entry: path.join(__dirname, '../client/server-entry.js'),
@@ -45,7 +44,7 @@ const config = merge(baseConfig, {
       'process.env.VUE_ENV': '"server"'
     }),
     new VueServerPlugin() /* 有了这个插件，输出的将不是Js文件，而是一个json文件，帮我们做很多服务端渲染的项目相关的内容
-                              将减轻一些开发逻辑 */
+                              将减轻一些开发逻辑,默认输出名为vue-ssr-server-bundle.json */
   ]
 })
 

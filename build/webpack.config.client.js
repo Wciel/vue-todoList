@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge') // help us merge webpack properly
 const ExtractPlugin = require('extract-text-webpack-plugin')// Separate css file
 const baseConfig = require('./webpack.config.base')
+const VueClientPlugin = require('vue-server-renderer/client-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 const defaultPlugins = [
   new webpack.DefinePlugin({
@@ -11,7 +12,8 @@ const defaultPlugins = [
       NODE_ENV: isDev ? '"development"' : '"production"'
     }
   }), // we can use it in js
-  new HTMLPlugin() // find the html entry
+  new HTMLPlugin(), // find the html entry
+  new VueClientPlugin() // 自动生成vue-ssr-client-manifest.json的文件
 ]
 
 const devServer = {
