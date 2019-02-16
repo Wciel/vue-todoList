@@ -2,7 +2,12 @@
 // import Login from '../views/login/login.vue'
 export default [
   {
-    path: '/app/:id', // 自定义路径,相当于／app/xxx
+    path: '/',
+    redirect: '/app'
+  },
+  {
+    path: '/app',
+    // path: '/app/:id', // 自定义路径,相当于／app/xxx
     component: () => import('../views/todo/todo.vue'),
     // components: {
     //   default: () => import('../views/todo/todo.vue'),

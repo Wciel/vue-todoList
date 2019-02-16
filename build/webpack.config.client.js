@@ -17,7 +17,6 @@ const defaultPlugins = [
   }), // find the html entry
   new VueClientPlugin() // 自动生成vue-ssr-client-manifest.json的文件
 ]
-
 const devServer = {
   port: 8000,
   host: '0.0.0.0',
@@ -65,11 +64,12 @@ if (isDev) {
 } else {
   config = merge(baseConfig, {
     entry: {
-      app: path.join(__dirname, '../client/index.js'),
+      app: path.join(__dirname, '../client/client-entry.js'),
       vendor: ['vue']
     },
     output: {
-      filename: 'vueJsFile/[name].[chunkhash:8].js'
+      filename: 'vueJsFile/[name].[chunkhash:8].js',
+      publicPath: '/public/'
     },
     module: {
       rules: [{

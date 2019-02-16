@@ -30,6 +30,9 @@ import Tabs from './tabs.vue'
 
 let id = 0
 export default {
+  metaInfo: {
+    title: 'todo app meta'
+  },
   // 关于某个组件的钩子函数
   beforeRouteEnter (to, from, next) {
     console.log('before enter') // 在这里是拿不到组件this的

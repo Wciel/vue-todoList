@@ -7,11 +7,11 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
   target: 'web',
-  entry: path.join(__dirname, '../client/index.js'), // dirname这个代表webpack.config.js文件所在的地址，也就是根目录
+  entry: path.join(__dirname, '../client/client-entry.js'), // dirname这个代表webpack.config.js文件所在的地址，也就是根目录
   output: {
     filename: 'bundle.[hash:8].js',
-    path: path.join(__dirname, '../dist'),
-    publicPath: '/'
+    path: path.join(__dirname, '../public'),
+    publicPath: 'http://127.0.0.1:8000/public/'
   },
   module: {
     rules: [

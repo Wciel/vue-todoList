@@ -31,19 +31,19 @@ const handleSSr = async (ctx) => {
     return
   }
   const template = fs.readFileSync(
-    path.join(__dirname, '../server/server.template.ejs')
+    path.join(__dirname, '../../server/server.template.ejs'),
+    'utf-8'
   )
 
   const clientManifestResp = await axios.get(
-    'http://127.0.0.1:8000/vue-ssr-client-manifest.json'
+    'http://127.0.0.1:8000/public/vue-ssr-client-manifest.json'
   )
-  const clientManifest = clientManifestResp.data
+  const clientManifest = clientManifestResp.data // 拿到客户端打包好的文件数据
 
   const renderer = VueServerRenderer
     .createBundleRenderer(bundle, {
-      inject: false,
+      inject: false, // 是否注入
       clientManifest
-
     }) // 自动生成带有script标签的字符串，这样就可以直接填到ejs html的模板里面
   await serverRender(ctx, renderer, template)
 }
