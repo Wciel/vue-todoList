@@ -1,0 +1,7 @@
+// import './vuecycle'
+// import './data-building'
+// import './computed'
+// import './directive'
+// import './component/extend'
+// import './component/features'
+import './component/render'
